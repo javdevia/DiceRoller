@@ -6,16 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="1" />
+     <ImageView
+         android:id="@+id/ivDiceRoll"
+         android:layout_width="160dp"
+         android:layout_height="200dp"
+         tools:background="@color/black"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/btnRoll"
@@ -25,7 +24,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResult" />
+        app:layout_constraintTop_toBottomOf="@+id/ivDiceRoll" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
