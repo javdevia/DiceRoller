@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import javax.crypto.spec.IvParameterSpec
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,29 +15,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        InitUI()
-        InitListeners()
+        initUI()
+        initListeners()
     }
 
-    private fun InitUI() {
+    private fun initUI() {
         btnRoll = findViewById(R.id.btnRoll)
         ivDiceRoll = findViewById(R.id.ivDiceRoll)
         ivDiceRoll.setImageResource(R.drawable.dice_1)
     }
 
-    private fun InitListeners() {
+    private fun initListeners() {
         btnRoll.setOnClickListener {
 
             Toast.makeText(this, "Dice Rolled!", Toast.LENGTH_SHORT).show()
 
             val firstDice = Dice(6)
             val result: Int = firstDice.roll()
-
+            ivDiceRoll.contentDescription = (result.toString())
             printDice(result)
         }
     }
 
-    private class Dice(val numSides: Int) {
+    class Dice(val numSides: Int) {
         fun roll(): Int {
             return (1..numSides).random()
         }
@@ -47,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun printDice(roll: Int) {
 
-        val drawableResourse = when (roll) {
+        val drawableResource = when (roll) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
             3 -> R.drawable.dice_3
@@ -57,6 +55,6 @@ class MainActivity : AppCompatActivity() {
             else -> R.drawable.dice_1
         }
 
-        return ivDiceRoll.setImageResource(drawableResourse)
+        return ivDiceRoll.setImageResource(drawableResource)
     }
 }
